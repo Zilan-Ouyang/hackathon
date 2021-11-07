@@ -170,7 +170,7 @@ function Page () {
     const [address, setAddress] = useState('');
     const [network, setNetwork] = useState('');
     const [connected, setConnected] = useState(false);
-    const [ethBalance, setEthBalance] = useState("")
+    // const [ethBalance, setEthBalance] = useState("")
     const [owned, setOwned] = useState([]);
     const [update, setUpdate] = useState(0);
     useEffect(() => {
@@ -211,7 +211,7 @@ function Page () {
                 setConnected(true)
                 setAddress(address)
                 setNetwork(network)
-                setEthBalance(balance)
+                // setEthBalance(balance)
             // Acccounts now exposed
             } catch (error) {
             // User denied account access...
@@ -291,7 +291,7 @@ function Page () {
                 <div className={classes.collage}>
                     {picList.map((pic, index )=> (
                         <div key={pic.part} className={classes.picContainer}>
-                            {owned[index] == 0 ? 
+                            {owned[index] === 0 ? 
                             <ColorButton size='small' variant="contained" className={classes.button} style={{ borderRadius: 25 }} onClick={() => mintToken(pic.part)} disabled={!address}>Mint</ColorButton>
                             :<ColorButton size='small' variant="outlined" className={classes.button} style={{ borderRadius: 25 }} onClick={() => mintToken(pic.part)} disabled>Minted</ColorButton>}
                             <img src={pic.image} className={classes.pic} alt={pic.name} />
