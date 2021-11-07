@@ -1,6 +1,6 @@
 import Web3 from 'web3';
 import ArtTokenABI from '../contractABI/ArtToken.json'
-const TOKEN_ADDRESS = '0x61C44F9EBA4BBbb898B37d933Fab4D8e7Dfd25c1';
+const TOKEN_ADDRESS = '0xc84Cbb1CB2fD1a3100F0bdb0c2fF4d6472Fc2553';//'0x61C44F9EBA4BBbb898B37d933Fab4D8e7Dfd25c1';
 const UNIT_PRICE = 10000000000000//500000000000000000;
 export default class NFTMintClient {
     constructor(){
