@@ -172,11 +172,15 @@ function Page () {
     const [connected, setConnected] = useState(false);
     // const [ethBalance, setEthBalance] = useState("")
     const [owned, setOwned] = useState([]);
+    const [userMintedCount,setUserMintedCount] = useState(0);
     const [update, setUpdate] = useState(0);
     useEffect(() => {
         if(address) {
             (async function(){
                 let owned = await blockchainClient.getTokenBalance(address);
+                const ownedcount = owned.filter(bal => bal !== "0").length
+                console.log(ownedcount);
+                setUserMintedCount(ownedcount)
                 setOwned(owned)
             })()
         }
@@ -284,7 +288,7 @@ function Page () {
                             Minted
                         </div>
                         <div className={classes.mintText}>
-                            2
+                            {userMintedCount}
                         </div>
                     </div>
                 </div> 
