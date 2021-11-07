@@ -57,8 +57,8 @@ const useStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        paddingBottom: '100px'
-        // backgroundColor: '#E5E5E5'
+        paddingBottom: '100px',
+        background: 'linear-gradient(180deg, #e5e5e5, #ffffff)'
     },
     header: {
         width: '70%',
