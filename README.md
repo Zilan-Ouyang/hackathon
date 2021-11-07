@@ -1,5 +1,6 @@
 # Unicoin Hackthon Rose NFT
 
+[![Add to Homescreen](https://img.shields.io/badge/Skynet-Add%20To%20Homescreen-00c65e?logo=skynet&labelColor=0d0d0d)](https://homescreen.hns.siasky.net/#/skylink/AQCYUTEmlaR4EmVSKA3IWTCa5VoO-AbUVCPdX3G7tUUAzg)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
