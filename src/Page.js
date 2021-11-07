@@ -170,7 +170,7 @@ function Page () {
     const [address, setAddress] = useState('');
     const [network, setNetwork] = useState('');
     const [connected, setConnected] = useState(false);
-    const [ethBalance, setEthBalance] = useState("")
+    // const [ethBalance, setEthBalance] = useState("")
     const [owned, setOwned] = useState([]);
     const [update, setUpdate] = useState(0);
     useEffect(() => {
@@ -191,7 +191,7 @@ function Page () {
         };
         // console.log(ethereum);
         // console.log(ethereum.isConnected());
-        if (!!ethereum&&ethereum.isConnected()&&!!address ==false) {
+        if (!!ethereum&&ethereum.isConnected()&&!address) {
             try {
                 const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
                 const address = accounts[0];
