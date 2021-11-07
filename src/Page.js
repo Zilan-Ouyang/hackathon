@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles, styled } from '@mui/styles';
 import GoogleFontLoader from 'react-google-font-loader';
 import Profile from './avatar.jpg';
@@ -171,7 +171,16 @@ function Page () {
     const [network, setNetwork] = useState('');
     const [connected, setConnected] = useState(false);
     const [ethBalance, setEthBalance] = useState("")
-
+    const [owned, setOwned] = useState([]);
+    const [update, setUpdate] = useState(0);
+    useEffect(() => {
+        if(address) {
+            (async function(){
+                let owned = await blockchainClient.getTokenBalance(address);
+                setOwned(owned)
+            })()
+        }
+    },[address, update])
     const getAccount = async() => {
         const networkNameLookup = {
             '0x1': 'mainnet',
@@ -229,6 +238,8 @@ function Page () {
         console.log(address)
         let mint = await blockchainClient.mintToken(address, paintId)
         if(mint){
+            let flag = update + 1
+            setUpdate(flag);
             alert("You successfully minted an NFT!")
         }
         else {
@@ -278,9 +289,11 @@ function Page () {
                     </div>
                 </div> 
                 <div className={classes.collage}>
-                    {picList.map(pic => (
+                    {picList.map((pic, index )=> (
                         <div key={pic.part} className={classes.picContainer}>
+                            {owned[index] == 0 ? 
                             <ColorButton size='small' variant="contained" className={classes.button} style={{ borderRadius: 25 }} onClick={() => mintToken(pic.part)} disabled={!address}>Mint</ColorButton>
+                            :<ColorButton size='small' variant="outlined" className={classes.button} style={{ borderRadius: 25 }} onClick={() => mintToken(pic.part)} disabled>Minted</ColorButton>}
                             <img src={pic.image} className={classes.pic} alt={pic.name} />
                         </div>
                     ))}

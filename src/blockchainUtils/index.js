@@ -21,4 +21,9 @@ export default class NFTMintClient {
             })
             return txHash;
     }
+    async getTokenBalance(userAddress){
+        const myTokens = await this.tokenInstance.methods.getMyBalances().call({from: userAddress});
+        console.log(myTokens)
+        return myTokens;
+    }
 }
