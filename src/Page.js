@@ -291,7 +291,7 @@ function Page () {
                 <div className={classes.collage}>
                     {picList.map((pic, index )=> (
                         <div key={pic.part} className={classes.picContainer}>
-                            {owned[index] === 0 ? 
+                            {owned[index] === "0" ? 
                             <ColorButton size='small' variant="contained" className={classes.button} style={{ borderRadius: 25 }} onClick={() => mintToken(pic.part)} disabled={!address}>Mint</ColorButton>
                             :<ColorButton size='small' variant="outlined" className={classes.button} style={{ borderRadius: 25 }} onClick={() => mintToken(pic.part)} disabled>Minted</ColorButton>}
                             <img src={pic.image} className={classes.pic} alt={pic.name} />
